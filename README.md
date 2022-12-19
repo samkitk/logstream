@@ -24,8 +24,12 @@ Logstream is a barebones implementation of reading server-side logs in real-time
 
 ### Using Docker
 - Since the flask application is checking for any changes in the `logs.txt` - it's stored inside the running docker container. Hence we need to go inside the container and edit that file in order to see the changes
-- Find the container name using `docker ps` ![docker ps output](https://postimg.cc/ZBjnq2QL)
-<img src="https://postimg.cc/ZBjnq2QL">
+- Open http://localhost:5000 in your browser to act as a client
+- Find the running container name using `docker ps`
+[![image.png](https://i.postimg.cc/J0CkpWcS/image.png)](https://postimg.cc/ZBjnq2QL)
+- Enter the container using `docker exec -it gallant_wilbur bash` where `gallant_wilbur` is the name of the container found using `docker ps`
+- Edit the logs.txt using `nano` or `vim` and save it.
+- You can check the browser which will reflect all new lines added the logs file.
 
 ## Contributing
 
