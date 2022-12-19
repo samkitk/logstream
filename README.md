@@ -31,6 +31,10 @@ Logstream is a barebones implementation of reading server-side logs in real-time
 - Edit the logs.txt using `nano` or `vim` and save it.
 - You can check the browser which will reflect all new lines added the logs file.
 
+
+## Demo
+[![image.png](https://i.postimg.cc/mDpHGH4f/image.png)](https://postimg.cc/ftXLckkB)
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
