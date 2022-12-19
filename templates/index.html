@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Logs Reader</title>
+</head>
+<body>
+    <h2>Inito Assignment</h2>
+    <h3>=Logs Reader=</h3>
+    <div id="logs">
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+      var socket = io.connect('http://localhost:5000');
+      socket.on('new_line', function(line) {
+          var logsDiv = document.getElementById('logs');
+          var newLine = document.createElement('p');
+          var currentDate = new Date();
+          var timestamp = currentDate.toLocaleString();
+          newLine.innerHTML = timestamp+": "+line;
+          logsDiv.appendChild(newLine);
+      });
+  </script>
+</body>
+</html>
