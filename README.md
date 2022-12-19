@@ -1,6 +1,9 @@
 # LogStream
 Logstream is a barebones implementation of reading server-side logs in real-time and serving them to the connected clients using sockets.
 
+## Architecture
+[![Diagram.png](https://i.postimg.cc/FK56vYZ6/Diagram.png)](https://postimg.cc/7599MYj1)
+
 ## Installation/Setup
 ### Traditional way (Python+Flask on your machine)
 `Requires Python installed on your machine`
@@ -34,6 +37,15 @@ Logstream is a barebones implementation of reading server-side logs in real-time
 
 ## Demo
 [![image.png](https://i.postimg.cc/mDpHGH4f/image.png)](https://postimg.cc/ftXLckkB)
+
+
+## Technical Issues and Solutions
+#### How to establish a connection between client and server ?
+We have used websockets in this case. The server side opens a port for the clients to connect. Sockets are of two types - TCP and UDP. We have used TCP by default in Flask.
+#### How to know that something is added to the file ?
+We have started a background process in flask that keeps reading the `logs.txt` file. By storing the last known position (seek) we only watch the file for new lines added. 
+#### How to make sure that only the newly added text is sent to the client ?
+We are using seek and storing the last known EOF position. The background process only checks for new lines added from the last known position and only reads them and not the entire file.
 
 ## Contributing
 
